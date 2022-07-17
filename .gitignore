@@ -1,0 +1,14 @@
+gout
+logs
+plugins
+.idea
+<<<<<<< HEAD
+Slice.iml
+=======
+SliceConsole.iml
+.idea/workspace.xml
+ViaMCP/ViaBackwards/config.yml
+ViaMCP/ViaRewind/config.yml
+ViaMCP/ViaVersion/viaversion.yml
+eula.txt
+server.properties
