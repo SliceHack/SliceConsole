@@ -75,33 +75,23 @@ public class Box extends JComponent {
      * @return formatted string as html
      * */
     public String format(String message) {
-        Matcher match = pattern.matcher(message);
-
-        StringBuilder sb = new StringBuilder();
-        sb.append("<html>");
-        boolean found = false;
-
-        while(match.find()) {
-            String color = message.substring(match.start(), match.end());
-            String[] split = message.split(color, 2);
-            String before = split[0];
-            String after = split[1];
-            StringBuilder text = new StringBuilder();
-            text.append("<font color=\"#FFFFFF\">").append(before).append("</font>");
-            if(color.contains("#")) {
-                String s = "<font color=\"#" + color.substring(1) + "\">";
-                text.append(s);
-                text.append(after);
-                text.append("</font>");
+        // loop through the string if the character is a # add 5 to the index and check if it is a hex color
+        for(int i = 0; i < message.length(); i++) {
+            if(message.charAt(i) == '#') {
+                if(i + 6 < message.length()) {
+                    String color = message.substring(i, i + 6);
+                    if(isHex(color)) {
+                        message = message.replace(color, "<font color=\"" + color + "\">");
+                        i += 5;
+                    }
+                }
             }
-            sb.append(text);
-            message = "";
         }
-        if(!found) {
-            sb.append("<p>").append(removeHex(message)).append("</p>");
-        }
-        sb.append("</html>");
-        return sb.toString();
+        return message;
+    }
+
+    public boolean isHex(String s) {
+        return pattern.matcher(s).matches();
     }
 
 }
