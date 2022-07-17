@@ -5,7 +5,7 @@ plugins
 <<<<<<< HEAD
 Slice.iml
 =======
-SliceConsole.iml
+SliceIRCConsole.iml
 .idea/workspace.xml
 ViaMCP/ViaBackwards/config.yml
 ViaMCP/ViaRewind/config.yml
