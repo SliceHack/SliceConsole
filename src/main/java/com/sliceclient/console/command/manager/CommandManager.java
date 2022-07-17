@@ -52,7 +52,6 @@ public class CommandManager {
      *
      * @param command The command to add
      * */
-    @SuppressWarnings("unused")
     public void register(Command command) {
         commands.add(command);
     }
