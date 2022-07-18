@@ -17,6 +17,5 @@ public enum Colors {
     PINK("&d", "#FF1493"), ORANGE("&6", "#FFA500"),
     PURPLE("&5", "#800080"), CYAN("&3", "#008080");
 
-
     private final String colorCode, hex;
 }
