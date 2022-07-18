@@ -11,9 +11,14 @@ public class CommandList extends Command {
         StringBuilder sb = new StringBuilder();
 
         sb.append("Users online: ");
+
+        int index = 0;
         for (String s : SliceConsole.INSTANCE.getIrc().getList()) {
+
             String[] split = s.split(":");
-            sb.append(split[1]).append(", ");
+
+            sb.append("#55FF55").append(split[1]);
+            index++;
         }
         SliceConsole.INSTANCE.addDisplayMessage(sb.toString());
         return true;

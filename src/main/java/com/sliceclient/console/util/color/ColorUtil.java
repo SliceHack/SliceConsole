@@ -13,8 +13,7 @@ import java.util.regex.Pattern;
 @UtilityClass
 public class ColorUtil {
 
-    /** for hex */
-    private static final Pattern pattern = Pattern.compile("#[a-fA-f0-9]{6}");
+    private static final Pattern pattern = Pattern.compile("#[a-fA-F0-9]{6}");
 
     /**
      * Formats using html and hex colors
@@ -22,25 +21,23 @@ public class ColorUtil {
      * @param text the string to format
      * */
     public static String format(String text) {
-        Matcher match = pattern.matcher(text);
+        String[] split = text.split(" ");
 
-        String s = text;
         StringBuilder sb = new StringBuilder();
         sb.append("<html>");
-        boolean hasHex = match.find();
-        if(!hasHex) {
-            sb.append("<font color=\"#FFFFFF\">").append(text).append("</font>").append("</html>");
-            return sb.toString();
-        }
 
-        while (match.find()) {
-            String color = text.substring(match.start(), match.end());
-            text = text.replace(color, "<font color=\"" + color + "\">");
-            s = text;
-            text = "</font>";
-            match = pattern.matcher(text);
+        int index = 0;
+        for(String s : split) {
+            if(index != 0) sb.append(" ");
+
+            if(s.startsWith("#")) {
+                String hex = s.substring(0, 7), after = s.substring(7);
+                sb.append("<font color=\"").append(hex).append("\">").append(after).append("</font>");
+            } else {
+                sb.append("<font color=\"#FFFFFF\">").append(s).append("</font>");
+            }
+            index++;
         }
-        sb.append(s).append(text);
         sb.append("</html>");
         return sb.toString();
     }
@@ -59,6 +56,10 @@ public class ColorUtil {
             match = pattern.matcher(text);
         }
         return text;
+    }
+
+    public boolean isHex(String s) {
+        return pattern.matcher(s).matches();
     }
 
 }
