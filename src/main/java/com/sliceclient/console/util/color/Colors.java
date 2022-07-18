@@ -15,7 +15,8 @@ public enum Colors {
     LIGHT_GREEN("&a", "#90EE90"), LIGHT_BLUE("&b", "#ADD8E6"),
     LIGHT_YELLOW("&e", "#FFFFE0"), RESET("&r", "#FFFFFF"),
     PINK("&d", "#FF1493"), ORANGE("&6", "#FFA500"),
-    PURPLE("&5", "#800080"), CYAN("&3", "#008080");
+    PURPLE("&5", "#800080"), CYAN("&3", "#008080"),
+    LIME("&a", "#00FF00"), TEAL("&b", "#008080");
 
     private final String colorCode, hex;
 }
