@@ -1,6 +1,7 @@
 out
 logs
 plugins
+src/main/java/META-INF
 .idea
 <<<<<<< HEAD
 Slice.iml
