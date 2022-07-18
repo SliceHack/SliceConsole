@@ -13,7 +13,10 @@ public enum Colors {
     DARK_WHITE("&7", "#000000"), GRAY("&8", "#808080"),
     DARK_GRAY("&9", "#A9A9A9"), LIGHT_RED("&c", "#FFA500"),
     LIGHT_GREEN("&a", "#90EE90"), LIGHT_BLUE("&b", "#ADD8E6"),
-    LIGHT_YELLOW("&e", "#FFFFE0"), RESET("&r", "#FFFFFF");
+    LIGHT_YELLOW("&e", "#FFFFE0"), RESET("&r", "#FFFFFF"),
+    PINK("&d", "#FF1493"), ORANGE("&6", "#FFA500"),
+    PURPLE("&5", "#800080"), CYAN("&3", "#008080");
+
 
     private final String colorCode, hex;
 }
