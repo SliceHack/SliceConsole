@@ -12,6 +12,8 @@ import com.sliceclient.console.handler.KeyHandler;
 import com.sliceclient.console.util.hardware.HardwareUtil;
 import lombok.Getter;
 
+import static com.sliceclient.console.util.color.ColorUtil.removeHex;
+
 /**
  * The console of Slice
  *
@@ -87,7 +89,7 @@ public enum SliceConsole {
         if(commandManager.handle(message))
             return;
 
-        message = box.removeHex(message);
+        message = removeHex(message);
 
         if(message.startsWith(" ")) return;
         if(message.isEmpty()) return;

@@ -48,12 +48,6 @@ public class Start {
             UnzipUtil.unzip(zipFont.getAbsolutePath(), fileFont.getAbsolutePath());
         }
 
-        if(!file3.exists()) {
-            DownloadUtil.downloadFile("https://api.sliceclient.com/download/lib", ziplib.getAbsolutePath());
-            UnzipUtil.unzip(ziplib.getAbsolutePath(), filelib.getAbsolutePath());
-        }
-
-
         if(zip.exists() && file1.exists()) zip.delete();
         if(zipFont.exists() && file2.exists()) zipFont.delete();
         if(ziplib.exists() && file3.exists()) ziplib.delete();
