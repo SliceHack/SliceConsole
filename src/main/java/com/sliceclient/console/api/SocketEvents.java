@@ -28,7 +28,7 @@ public class SocketEvents {
             String discordName = (String) args[0];
             String message = (String) args[1];
 
-            SliceConsole.INSTANCE.getBox().add(args[2] + " &c(&b" + discordName + ")" + ": " + message);
+            SliceConsole.INSTANCE.getBox().add(args[2] + " &c(&b" + discordName + "&c)&r" + ": " + message);
         });
 
         socket.on("usernameSet", (args) -> {

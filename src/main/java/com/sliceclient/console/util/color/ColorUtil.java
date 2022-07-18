@@ -24,8 +24,6 @@ public class ColorUtil {
     public static String format(String text) {
         Matcher match = pattern.matcher(text);
 
-        for(Colors color : Colors.values()) text = text.replace(color.getColorCode(), color.getHex());
-
         String s = text;
         StringBuilder sb = new StringBuilder();
         sb.append("<html>");
