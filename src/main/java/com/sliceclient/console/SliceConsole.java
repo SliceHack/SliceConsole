@@ -3,6 +3,7 @@ package com.sliceclient.console;
 import com.sliceclient.console.api.API;
 import com.sliceclient.console.api.IRC;
 import com.sliceclient.console.command.manager.CommandManager;
+import com.sliceclient.console.frame.ScreenType;
 import com.sliceclient.console.frame.ui.auth.NoAuth;
 import com.sliceclient.console.frame.ui.back.Background;
 import com.sliceclient.console.frame.Window;
@@ -41,6 +42,9 @@ public enum SliceConsole {
     /** manager */
     private final CommandManager commandManager;
 
+    /** The screen the user is on*/
+    private ScreenType screen;
+
     /**
      * Constructor
      * */
@@ -64,8 +68,10 @@ public enum SliceConsole {
             textBox.setEnabled(false);
             window.setResizable(false);
             window.show(true);
+            screen = ScreenType.CONSOLE;
             return;
         }
+
 
         irc = null;
         box = null;
@@ -74,10 +80,9 @@ public enum SliceConsole {
         commandManager = null;
         window.add(noAuth = new NoAuth());
         window.add(background = new Background(800, 600));
-
-
         window.setResizable(false);
         window.show(true);
+        screen = ScreenType.NOT_AUTH;
     }
 
     /**
@@ -113,6 +118,7 @@ public enum SliceConsole {
     public void update() {
         Background background = getBackground();
         background.setBounds(0, 0, getWindow().getFrame().getWidth(), getWindow().getFrame().getHeight());
+
 
         if(auth) {
             TextArea textArea = getTextArea();

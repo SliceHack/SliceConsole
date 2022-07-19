@@ -2,10 +2,12 @@ package com.sliceclient.console.command.manager;
 
 import com.sliceclient.console.SliceConsole;
 import com.sliceclient.console.command.Command;
+import com.sliceclient.console.command.commands.CommandBroadcast;
 import com.sliceclient.console.command.commands.CommandList;
 import lombok.Getter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -25,16 +27,19 @@ public class CommandManager {
     /** Constructor */
     public CommandManager() {
         register(new CommandList());
+        register(new CommandBroadcast());
     }
 
     public boolean handle(String message) {
         if(message.startsWith(PREFIX)) {
-            String command = message.substring(PREFIX.length());
+            String command = message.substring(PREFIX.length()).split(" ")[0];
 
             for(Command c : commands) {
+                List<String> aliases = Arrays.asList(c.getAliases());
 
-                if(c.getName().startsWith(command)) {
-                    String[] args = message.substring(PREFIX.length() + c.getName().length()).split(" ");
+                if(c.getName().startsWith(command) || aliases.contains(command)) {
+                    String[] args = message.substring(PREFIX.length() + command.length()).split(" ");
+                    if(args[0].isEmpty()) args = Arrays.copyOfRange(args, 1, args.length);
                     c.execute(args);
                     return true;
                 }

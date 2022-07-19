@@ -19,7 +19,7 @@ import java.util.List;
 public class IRC {
 
     /** API url */
-    private static final String API_URL = "https://api.sliceclient.com";
+    private static final String API_URL = "http://localhost:3001";
 
     private Socket socket;
     private SocketEvents socketEvents;
@@ -54,6 +54,18 @@ public class IRC {
         }
 
         socket.emit("message", message);
+    }
+
+    /**
+     * Broadcasts a message to the server.
+     * */
+    public void broadcastMessage(String message) {
+        if(!socket.connected()) {
+            SliceConsole.INSTANCE.addDisplayMessage("Not connected to the server!");
+            return;
+        }
+
+        socket.emit("broadcast", message);
     }
 
 

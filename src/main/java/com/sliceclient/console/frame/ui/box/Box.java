@@ -48,6 +48,6 @@ public class Box extends JComponent {
      * @param s message to add
      * */
     public void add(String s) {
-        list.add(new JLabel(format("#FFFFF5" + s)));
+        list.add(new JLabel(format(s)));
     }
 }

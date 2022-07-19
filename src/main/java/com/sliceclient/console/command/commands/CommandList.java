@@ -4,7 +4,7 @@ import com.sliceclient.console.SliceConsole;
 import com.sliceclient.console.command.Command;
 import com.sliceclient.console.command.data.CommandInfo;
 
-@CommandInfo(name = "list", description = "Lists all users online")
+@CommandInfo(name = "list", description = "Lists all users online", aliases = { "users",  "ulist"})
 public class CommandList extends Command {
 
     public boolean execute(String[] args) {
@@ -17,10 +17,10 @@ public class CommandList extends Command {
 
             String[] split = s.split(":");
 
-            sb.append("#55FF55").append(split[1]);
+            sb.append(split[1]);
             index++;
         }
-        SliceConsole.INSTANCE.addDisplayMessage(sb.toString());
+        SliceConsole.INSTANCE.addDisplayMessage("#00FFFF" + sb);
         return true;
     }
 }

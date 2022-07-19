@@ -28,8 +28,10 @@ public class SocketEvents {
             String discordName = (String) args[0];
             String message = (String) args[1];
 
-            SliceConsole.INSTANCE.getBox().add(args[2] + " #FF5555(" + discordName + ")" + ": " + message);
+            SliceConsole.INSTANCE.getBox().add("#00FFFF" + args[2] + " #FF5555(#00FFFF" + discordName + "#FF5555)" + "#00FFFF: " + message);
         });
+
+        socket.on("connected", (args) -> runConnected());
 
         socket.on("usernameSet", (args) -> {
             try {
@@ -39,7 +41,6 @@ public class SocketEvents {
                 for (int i = 0; i < array.length(); i++) {
                     String name = array.getString(i);
                     list.add(name);
-                    System.out.println(name);
                 }
                 SliceConsole.INSTANCE.getIrc().setList(list);
             } catch (Exception e) {
@@ -48,7 +49,6 @@ public class SocketEvents {
                 s = s.replace("[", "").replace("]", "").replace("\"", "").replace(",", "\n");
                 String[] lines = s.split("\n");
                 List<String> list = new ArrayList<>(Arrays.asList(lines));
-                System.out.println(list);
                 SliceConsole.INSTANCE.getIrc().setList(list);
             }
         });
@@ -59,7 +59,7 @@ public class SocketEvents {
             if(discordName == null)
                 return;
 
-            SliceConsole.INSTANCE.getBox().add(discordName + " has connected");
+            SliceConsole.INSTANCE.getBox().add("#00FFFF" + discordName + "#FF5555 has connected");
         });
 
         socket.on("ircDisconnection", (args) -> {
@@ -68,7 +68,7 @@ public class SocketEvents {
             if(discordName == null)
                 return;
 
-            SliceConsole.INSTANCE.getBox().add(discordName + " has disconnected");
+            SliceConsole.INSTANCE.getBox().add("#00FFFF" + discordName + "#FF5555 has disconnected");
         });
 
         socket.on("disconnected", (args) -> SliceConsole.INSTANCE.getBox().add("Disconnected from the server"));
