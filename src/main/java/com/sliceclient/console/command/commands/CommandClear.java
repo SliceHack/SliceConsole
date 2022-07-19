@@ -9,7 +9,6 @@ public class CommandClear extends Command {
 
     public boolean execute(String[] args) {
         SliceConsole.INSTANCE.getBox().getList().clear();
-        SliceConsole.INSTANCE.getBox().add("Console cleared");
         return false;
     }
 }
