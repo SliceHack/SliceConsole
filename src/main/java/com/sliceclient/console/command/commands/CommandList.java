@@ -14,10 +14,11 @@ public class CommandList extends Command {
 
         int index = 0;
         for (String s : SliceConsole.INSTANCE.getIrc().getList()) {
-
             String[] split = s.split(":");
 
-            sb.append(split[1]);
+            if(index != SliceConsole.INSTANCE.getIrc().getList().size()) sb.append(split[1]).append(", ");
+            else sb.append(split[1]);
+
             index++;
         }
         SliceConsole.INSTANCE.addDisplayMessage("#00FFFF" + sb);

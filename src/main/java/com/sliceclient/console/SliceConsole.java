@@ -10,7 +10,6 @@ import com.sliceclient.console.frame.Window;
 import com.sliceclient.console.frame.ui.box.Box;
 import com.sliceclient.console.frame.ui.text.TextArea;
 import com.sliceclient.console.handler.KeyHandler;
-import com.sliceclient.console.util.hardware.HardwareUtil;
 import lombok.Getter;
 
 import static com.sliceclient.console.util.color.ColorUtil.removeHex;
@@ -43,7 +42,7 @@ public enum SliceConsole {
     private final CommandManager commandManager;
 
     /** The screen the user is on*/
-    private ScreenType screen;
+    private final ScreenType screen;
 
     /**
      * Constructor

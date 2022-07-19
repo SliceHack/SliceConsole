@@ -4,6 +4,7 @@ import com.sliceclient.console.SliceConsole;
 import com.sliceclient.console.command.Command;
 import com.sliceclient.console.command.commands.CommandBroadcast;
 import com.sliceclient.console.command.commands.CommandClear;
+import com.sliceclient.console.command.commands.CommandConnect;
 import com.sliceclient.console.command.commands.CommandList;
 import lombok.Getter;
 
@@ -30,6 +31,7 @@ public class CommandManager {
         register(new CommandList());
         register(new CommandBroadcast());
         register(new CommandClear());
+        register(new CommandConnect());
     }
 
     public boolean handle(String message) {
