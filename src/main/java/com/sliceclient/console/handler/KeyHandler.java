@@ -1,9 +1,5 @@
 package com.sliceclient.console.handler;
 
-import com.sliceclient.console.SliceConsole;
-import com.sliceclient.console.frame.ui.text.TextArea;
-
-import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
