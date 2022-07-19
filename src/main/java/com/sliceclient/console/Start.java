@@ -1,8 +1,11 @@
 package com.sliceclient.console;
 
+import com.sliceclient.console.frame.Window;
 import com.sliceclient.console.util.download.DownloadUtil;
 import com.sliceclient.console.util.zip.UnzipUtil;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 
 /**
